@@ -1,0 +1,45 @@
+if BOARD_SAMSUNG_350V5C
+
+config BOARD_SPECIFIC_OPTIONS
+	def_bool y
+	select SYSTEM_TYPE_LAPTOP
+	select NORTHBRIDGE_INTEL_IVYBRIDGE
+	select USE_NATIVE_RAMINIT
+	select SOUTHBRIDGE_INTEL_C216
+	select EC_ACPI
+	select BOARD_ROMSIZE_KB_6144
+	select HAVE_ACPI_TABLES
+	select HAVE_ACPI_RESUME
+	select INTEL_INT15
+	select MAINBOARD_HAS_LIBGFXINIT
+	select GFX_GMA_INTERNAL_IS_LVDS
+	select SERIRQ_CONTINUOUS_MODE
+
+config MAINBOARD_DIR
+	string
+	default samsung/350v5c
+
+config MAINBOARD_PART_NUMBER
+	string
+	default "350V5C"
+
+config VGA_BIOS_FILE
+	string
+	default "pci8086,0166.rom"
+
+config VGA_BIOS_ID
+	string
+	default "8086,0166"
+
+config DRAM_RESET_GATE_GPIO
+	int
+	default 60
+
+config MAX_CPUS
+	int
+	default 8
+
+config USBDEBUG_HCD_INDEX # FIXME: check this
+	int
+	default 2
+endif
